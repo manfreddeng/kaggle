@@ -1,0 +1,23 @@
+epoch - number of training sets
+
+randomise weights for each edge
+randomise biases for each layer
+
+for each epoch
+	randomise training data
+	separate into mini batches
+
+	for each mini batch
+		for each parameters and class (each tuple)
+			activation = parameter
+			for each weights and bias (each layer)
+				z= dot(weights,activation) + b
+				store z
+				activation = sigmoid(z)
+				store activation
+
+			delta = (activations[-1] - y) * sigmoid_prime(zs[-1])
+			nabla_bias[-1] = delta
+			nabla_weight[-1] = dot(delta,activations[-2].transpose())
+
+			
